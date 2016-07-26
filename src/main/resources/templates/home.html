@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VertoSwap</title>
+</head>
+<body>
+<h2>VertoSwap</h2>
+<h4>a place to barter</h4><br>
+{{^username}}
+Login:
+<form action="/login" method="post">
+    <input type="text" name="username" placeholder="Username"/>
+    <input type="password" name="password" placeholder="Password"/>
+    <button type="submit">Login</button>
+</form>
+<br>
+Or create an account:
+<a href="/account-create">Create account</a>
+{{/username}}
+{{#username}}
+<a href="/user-profile">Go to profile</a>
+<br>
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
+{{/username}}
+<br><br>
+Search available barters:
+<form action="/" method="get">
+    <input type="text" name="search" placeholder="Search"/>
+    <button type="submit">Search</button>
+</form>
+<br><br>
+Goods
+<br>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Acceptable Exchange</th>
+        <th>Time</th>
+    </tr>
+    {{#goods}}
+    <tr>
+        <td>{{title}}</td>
+        <td>{{description}}</td>
+        <td>{{location}}</td>
+        <td>{{acceptableExchange}}</td>
+        <td>{{time}}</td>
+    </tr>
+    {{/goods}}
+</table>
+<br><br>
+Services
+<br>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Acceptable Exchange</th>
+        <th>Time</th>
+    </tr>
+    {{#services}}
+    <tr>
+        <td>{{title}}</td>
+        <td>{{description}}</td>
+        <td>{{location}}</td>
+        <td>{{acceptableExchange}}</td>
+        <td>{{time}}</td>
+    </tr>
+    {{/services}}
+</table>
+</body>
+</html>
